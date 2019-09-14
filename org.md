@@ -9,7 +9,13 @@
 
 ## Ask questions and listen
 
-TODO
+- Find out about the progress of the design
+- Find out about the progress of a component lib
+- Find out if the design already follows a component lib like symbols in Sketch shared with designers
+- Find out what the dominate tech stack is on the front end
+- Find out about how designers and developers work together
+  - What does the handover look like?
+- Is there wire-framing, user-research, content guidelines
 
 ## UI-inventory
 
