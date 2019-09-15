@@ -19,11 +19,19 @@
 
 ## UI-inventory
 
-TODO
+- Get all components together
+- Get all colors together
+- Get all text styles together (ignore only color)
+- Get all icons together (Iconography and other images)
 
 ## Tech-inventory
 
-TODO
+- Determine the stack(s)
+- Find component libs (there are usually a bunch)
+- Find out restrictions, eg access to GitHub, npm etc
+- Talk to devs in projects and see how they work
+- What js solution works best?
+- What css solution works best?
 
 ## Grouping
 
