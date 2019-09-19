@@ -33,13 +33,40 @@ This style guide is intended to be a living representation of how we work with d
 
 # Components
 
+> NOTE: Here we describe developing React components for a design system. The principles are largely translatable to React Native projects as well, but other frameworks and technologies are out of scope for our style guide at this time.
+
+> TODO: Review [React Patterns](https://reactpatterns.com) for inspiration - this does a good job of presenting various technical approaches you can take in React, and we can learn from the way it is organised and presented!
+
 Components encapsulate functionality that renders a `view` with `styles` based on a `state`.
 
 `(state) => ({ styles, view })`
 
 We also recognise functional building blocks and controllers that are used by components to manage state, side effects and other concerns.
 
+## Types of Components
+
+- Primitives
+  - design system components that generally only consist of one primary stateful component. 
+- Compound Components
+  - design system components that consist of multiple stateful components 
+- Composite Components
+  - components comprised of multiple components some of which are published elsewhere in the design system.
+
 ## Package Structure
+
+```
+- docs/
+- examples/
+- src/
+- package.json
+
+```
+
+## Types
+
+Use [TypeScript](https://www.typescriptlang.org).
+
+Among other things, it'll help you easily generate [Documentation](#Documentation) for your component APIs.
 
 ## API Design
 
@@ -86,13 +113,9 @@ Emotion gives us several benefits over other approaches:
 - Dynamic styles (and the props or state they are based on) can easily be codified in the `getStyles()` function
 - Automatic SSR support with no additional server or build configuration required (this is important when publishing packages to npm that should have no understanding of where or how they may be used)
 
-> When to use interpolated styles over css-in-js object?
-
 > Performance notes?
 
 > Best practice for structuring styles in react.
-
-## Spreading props and attributes into Views
 
 ## Accessibility
 
@@ -101,24 +124,51 @@ Emotion gives us several benefits over other approaches:
 
 ## Composition
 
+### Spreading props and attributes into Views
+
+> @gwyneplaine I have no idea what to write here
+
+Prop spreading is fine if there is only one primary dom element
+Prop spreading is not as fine if you have multiple meaningful dom elements in your component. In these situations it is best to have a more targeted strategy for passing attributes and props down to key elements ([see overrides](#Overrides)).
+
+### Wrapper Components
+
+Wrap components to add features, rather than blowing out the complexity of your low-level components, and their increasing API/prop surface area. 
+
+For example, if your basic button takes an `isPressed` prop, and you want to add a toggle button to your design system, you can achieve the effect by creating a wrapping component that manages the toggle state:
+
+```js
+const ToggleButton = props => {
+  const [toggled, setToggled] = useState(false);
+  const handleClick = (e) => {
+    props.onToggle && props.onToggle(e, !toggled);
+    setToggled(!toggled);
+  }
+  return <Button {...props} isPressed={toggled} onClick={handleClick} />
+};
+```
+
+This works best when your building-block components accept semantic and granular props with a well thought out API that closely reflects the state(s) the component can be in.
+
+#### Counterpoints
+
+This can get complex if you want to compose multiple components together.
+
 ### Render Props
 
 Render props allow us to take control over the key state, attributes and styles of a particular component, while giving the user ownership over the shape of the DOM.
 
-```
-const Modal = () => (
-
-)
+```js
+const Modal = () => ()
 export default () => (
   <Modal>
-    {
-      (props, styles) => (
-        <select>
-      )
-    }
+    {({ styles, props, containerRef )) => (
+      <div ref={containerRef} css={styles} {...props}>
+        ...
+      </div>
+    )}
   </Modal>
 )
-
 ```
 
 ### Overrides
@@ -131,6 +181,18 @@ Overrides allow users to make targeted changes without inheriting complexity
   _ i.e. setState in react (either a config object or a more explicit function that is passed previous state)
   _ for example spacing token used in padding instead of margin \* feedback loop with documented 80% case
 - A way for users to make stylistic changes that aren’t currently exposed as part of the theming / tokens API
+
+
+# Analytics
+
+Components exist in a hierarchy. Capture the context of where events are called down through the hierarchy using decorators, then bubble events up to listener components that wrap around the application.
+
+# Publishing and Versioning
+> See [monorepo style guide](https://github.com/Thinkmill/monorepo)
+
+# Observability
+
+> See https://twitter.com/kaelig/status/1172579203893456896
 
 # Documentation
 
