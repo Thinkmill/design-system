@@ -12,16 +12,54 @@ This style guide is intended to be a living representation of how we work with d
 
 > What is a design system? Purpose, Goals, Reasoning.
 
+"A Design System is an artefact of the culture and collaboration in your company" -- Dom
+
 > Need to either cover or link out to methodolgy here, see [Dom's first notes on this](https://github.com/Thinkmill/design-system/blob/master/org.md)
 
 ### Terminology
 
+(all wip and in need of further discussion)
+
+- Design Language
+
+> The collection of design decisions that represent a company, brand or product. Usually includes colour, typography, spacing, language and tone of voice, illustrations and iconography, visual style, and patterns of applying all of these to reference designs.
+
 - Design System
+
+> The composition of components, patterns and processes that is consumable, documented, published to be able to be reusable and scalable in a business domain
+
 - Design Tokens
+
+> Implementation agnostic variables that describe the subset of values core to a design system.
+
 - Theme
+
+> A customisable subset of design decisions that expresses sweeping style changes through the system.
+
 - Packs
+
+> A cluster of design tokens grouped according to how they should be used. See [Packs](#Packs)
+
+- Packages
+
+> A collection of one or more components or utilities, conceptually identifiable as a concern of the design system, documented and published to a package registry.
+
 - Components
-- Foundations
+
+> Components encapsulate functionality that renders a `view` with `styles` based on a `state`.
+> See [Components](#Components)
+
+- State
+
+> The combination of component that affect the appearance or behaviour of the
+
+- Controllable State
+
+> This is an important concept regarding how state can be optionally provided to a component, along with a callback that is invoked when the state should change. The fallback behaviour is for the component to manage the state and default callback behaviour internally.
+
+- Switches
+
+> Props that can change the appearance and/or behaviour of a component. Often selected from a set of possible values. Examples include appearance or color of a button, first day of the week in a calendar, etc.
 
 # Design Tokens
 
@@ -45,21 +83,31 @@ We also recognise functional building blocks and controllers that are used by co
 
 ## Types of Components
 
-- Primitives
-  - design system components that generally only consist of one primary stateful component. 
-- Compound Components
-  - design system components that consist of multiple stateful components 
-- Composite Components
+_Note that a package in the design system may include one or multiple components, of the following types. Not all components in a package must be exported._
+
+- **Elements**
+  - design system components that do not have internally managed state that reflect styles and attributes onto a dom element.
+- **Primitives**
+  - design system components that do have internally managed state generally only consist of one primary identifiable component.
+- **Compound Components**
+  - design system components that consist of multiple primitives.
+- **Composite Components**
   - components comprised of multiple components some of which are published elsewhere in the design system.
 
+The term "stateful", as applied to components, may mean state that is managed internally by the component or accepted as props.
+
 ## Package Structure
+
+> TODO: this needs to go hand-in-hand with some more depth around how documentation and examples are developed and published to make sense.
 
 ```
 - docs/
 - examples/
 - src/
+  - index.js
+  - styles.js
+- tests/
 - package.json
-
 ```
 
 ## Types
@@ -133,18 +181,18 @@ Prop spreading is not as fine if you have multiple meaningful dom elements in yo
 
 ### Wrapper Components
 
-Wrap components to add features, rather than blowing out the complexity of your low-level components, and their increasing API/prop surface area. 
+Wrap components to add features, rather than blowing out the complexity of your low-level components, and their increasing API/prop surface area.
 
 For example, if your basic button takes an `isPressed` prop, and you want to add a toggle button to your design system, you can achieve the effect by creating a wrapping component that manages the toggle state:
 
 ```js
 const ToggleButton = props => {
   const [toggled, setToggled] = useState(false);
-  const handleClick = (e) => {
+  const handleClick = e => {
     props.onToggle && props.onToggle(e, !toggled);
     setToggled(!toggled);
-  }
-  return <Button {...props} isPressed={toggled} onClick={handleClick} />
+  };
+  return <Button {...props} isPressed={toggled} onClick={handleClick} />;
 };
 ```
 
@@ -182,12 +230,12 @@ Overrides allow users to make targeted changes without inheriting complexity
   _ for example spacing token used in padding instead of margin \* feedback loop with documented 80% case
 - A way for users to make stylistic changes that aren’t currently exposed as part of the theming / tokens API
 
-
 # Analytics
 
 Components exist in a hierarchy. Capture the context of where events are called down through the hierarchy using decorators, then bubble events up to listener components that wrap around the application.
 
 # Publishing and Versioning
+
 > See [monorepo style guide](https://github.com/Thinkmill/monorepo)
 
 # Observability
@@ -196,4 +244,8 @@ Components exist in a hierarchy. Capture the context of where events are called 
 
 # Documentation
 
-[monorepo style guide](#)
+> [monorepo style guide](#)
+
+# Development
+
+>
