@@ -1,0 +1,9 @@
+{
+  "name": "design-system-guide",
+  "version": "0.0.1",
+  "description": "A guide for building, maintaining and collaborating on design-systems at Thinkmill",
+  "main": "index.js",
+  "repository": "https://github.com/Thinkmill/design-system.git",
+  "author": "Thinkmill",
+  "license": "MIT"
+}
