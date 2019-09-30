@@ -246,6 +246,12 @@ Components exist in a hierarchy. Capture the context of where events are called 
 
 > [monorepo style guide](#)
 
+# Definition of Done 
+
+> We should recommend (some derividation of) Emma Wedekind's Component Checklist here.
+> https://twitter.com/EmmaWedekind/status/1177248937763311617?s=20
+
 # Development
 
 >
+
