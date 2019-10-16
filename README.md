@@ -81,21 +81,6 @@ Components encapsulate functionality that renders a `view` with `styles` based o
 
 We also recognise functional building blocks and controllers that are used by components to manage state, side effects and other concerns.
 
-## Types of Components
-
-_Note that a package in the design system may include one or multiple components, of the following types. Not all components in a package must be exported._
-
-- **Elements**
-  - design system components that do not have internally managed state that reflect styles and attributes onto a dom element.
-- **Primitives**
-  - design system components that do have internally managed state generally only consist of one primary identifiable component.
-- **Compound Components**
-  - design system components that consist of multiple primitives.
-- **Composite Components**
-  - components comprised of multiple components some of which are published elsewhere in the design system.
-
-The term "stateful", as applied to components, may mean state that is managed internally by the component or accepted as props.
-
 ## Package Structure
 
 > TODO: this needs to go hand-in-hand with some more depth around how documentation and examples are developed and published to make sense.
@@ -119,8 +104,6 @@ Among other things, it'll help you easily generate [Documentation](#Documentatio
 ## API Design
 
 ## State Management
-
-// Todo
 
 > needs content from @jedwatson and @simonswiss.
 
@@ -168,15 +151,34 @@ Emotion gives us several benefits over other approaches:
 ## Accessibility
 
 > Resources for best practices around accessibility
+https://www.wuhcag.com/wcag-checklist/
+https://inclusive-components.design/
+https://www.udacity.com/course/web-accessibility--ud891
+https://a11yproject.com
+
 > Dom to provide (?)
 
 ## Composition
 
+### Types of Components
+
+When thinking about composition in a design system, it's helpful to break down the components in your design system into the following types:
+_Note that a package in the design system may include one or multiple components, of the following types. Not all components in a package must be exported._
+
+- **Elements**
+  - design system components that do not have internally managed state that reflect styles and attributes onto a dom element.
+- **Primitives**
+  - design system components that do have internally managed state generally only consist of one primary identifiable component.
+- **Compound Components**
+  - design system components that consist of multiple primitives.
+- **Composite Components**
+  - components comprised of multiple components some of which are published elsewhere in the design system.
+
+The term "stateful", as applied to components, may mean state that is managed internally by the component or accepted as props.
+
 ### Spreading props and attributes into Views
 
-> @gwyneplaine I have no idea what to write here
-
-Prop spreading is fine if there is only one primary dom element
+Prop spreading is a amenable pattern if there is only one primary dom element.
 Prop spreading is not as fine if you have multiple meaningful dom elements in your component. In these situations it is best to have a more targeted strategy for passing attributes and props down to key elements ([see overrides](#Overrides)).
 
 ### Wrapper Components
@@ -239,7 +241,12 @@ Components exist in a hierarchy. Capture the context of where events are called 
 > See [monorepo style guide](https://github.com/Thinkmill/monorepo)
 
 # Observability
+> The yardstick of how understandable a system is tends to be how observable it is. - Cindy Sridharan
 
+The longevity of a design system is hinged on how understandable it is. 
+As such, building tools and creating processes to make our design systems more understandable is incredibly important. 
+
+Tools like kaelig's 'Splash' are a good example of this. 
 > See https://twitter.com/kaelig/status/1172579203893456896
 
 # Documentation
