@@ -4,9 +4,15 @@ Important Note: This style guide is currently very WIP
 
 ---
 
+## What is this style guide? 
+
 This style guide documents the standards for building and maintaining design systems we follow at Thinkmill along with explaining the reasoning for our decisions and tooling.
 
-This style guide is intended to be a living representation of how we work with design systems so over time, the recommendations will change as tools and workflows evolve. While the guide is designed holistically, the tools and decisions in this guide can be used independently of each other.
+This style guide is intended to be a living representation of how Thinkmill works with design systems. Over time, the recommendations will change as our tools and workflows evolve. While the guide is designed holistically, the tools and decisions in this guide can be used independently of each other.
+
+## Who is this style-guide for? 
+
+This style-guide is intended to be opinionated, and focused on the kinds of work that Thinkmill does. Many decision inherently have trade-offs and the trade-offs made in this style-guide might not be the right ones for every company. We document these decisions fastidiously, and encourage you to use the bits that make sense for you.
 
 ## Concepts
 
@@ -159,6 +165,10 @@ https://a11yproject.com
 > Dom to provide (?)
 
 ## Composition
+
+### Props
+> reflected attributes as props 
+> props best practices
 
 ### Types of Components
 
