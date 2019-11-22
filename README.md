@@ -274,3 +274,8 @@ Tools like kaelig's 'Splash' are a good example of this.
 
 # Testing
 
+# Feedback Loops
+
+## What are the day to days of having a design system? 
+## How should we monitor and adapt our workflows? 
+## How do we share and incorporate learnings?
