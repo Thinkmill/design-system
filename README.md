@@ -87,6 +87,14 @@ Components encapsulate functionality that renders a `view` with `styles` based o
 
 We also recognise functional building blocks and controllers that are used by components to manage state, side effects and other concerns.
 
+## Props 
+### Should this be a static prop? 
+When we design the props for a component, its important to realise that what we're really doing is `making decisions` for the user. 
+
+As such its really important for us to first ask the question, `do we have enough information to make this decision for the user?`
+
+A simple example of this 
+
 ## Package Structure
 
 > TODO: this needs to go hand-in-hand with some more depth around how documentation and examples are developed and published to make sense.
@@ -273,4 +281,5 @@ Tools like kaelig's 'Splash' are a good example of this.
 >
 
 # Testing
+
 
