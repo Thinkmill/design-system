@@ -330,7 +330,7 @@ Tools like kaelig's 'Splash' are a good example of this.
 - Common and best patterns for usage are clearly defined and illustrated with examples. 
 
 ### Code snippets 
-- Interactive exampels should be accompanied by code snippets 
+- Interactive examples should be accompanied by code snippets 
 
 ### Context Definition 
 - When, where, how to use the component. 
