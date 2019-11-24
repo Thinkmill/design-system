@@ -300,7 +300,7 @@ Tools like kaelig's 'Splash' are a good example of this.
 - Components are AA compliant 
 
 ### Responsiveness
-- The component respondes gracefully to different viewport sizes. 
+- The component responds gracefully to different viewport sizes. 
 - The component responds gracefully to changes within a grid.
 
 ### State 
@@ -344,4 +344,3 @@ Tools like kaelig's 'Splash' are a good example of this.
 >
 
 # Testing
-
