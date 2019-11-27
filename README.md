@@ -268,9 +268,79 @@ Tools like kaelig's 'Splash' are a good example of this.
 > We should recommend (some derividation of) Emma Wedekind's Component Checklist here.
 > https://twitter.com/EmmaWedekind/status/1177248937763311617?s=20
 
-# Development
+## Design
 
+### Accessibility 
+- Accessible color palette 
+- Keyboard interactions designed up front 
+- Typescale is readable and appropriate 
+
+### Interaction 
+- Clearly outlined specification for user interactions and / or user input. 
+
+### Context 
+- How and why the component should be used is clearly defined. 
+
+### State 
+- The different states the component can be in are clearly defined and designed. 
+
+### Content 
+- Defined guideliens around content for and with the component.
+
+### Customisation 
+- `The component has defined aspects which are custommizable. If applicable, as well as the corresponding values.` - Emma Wedekind  
+
+### Responsiveness
+- How the component scales across varying viewport sizes and screen resolutions is clearly defined. 
+- How the component scales within a grid.
+
+## Engineering 
+
+### Accessibility
+- Components are AA compliant 
+
+### Responsiveness
+- The component responds gracefully to different viewport sizes. 
+- The component responds gracefully to changes within a grid.
+
+### State 
+- This component includes all of the neutral, hover, focus and disabled states as defined in design. 
+
+### Customization 
+- Component has clear patterns for customisations, as per design. (see overrides)
+
+### Error Handling 
+- This component handles errors gracefully
+ 
+### Browser Compatibility 
+- IE11+ 
+- Polyfills provided for newer technologies. 
+
+### Testing: 
+- Unit tests
+- Integration tests 
+- Cross browser tests. 
+
+## Documentation 
+
+### Properties 
+- The props of the component and its exported subcomponents are clearly defined and described. 
+
+### Interactive Examples 
+- Common and best patterns for usage are clearly defined and illustrated with examples. 
+
+### Code snippets 
+- Interactive examples should be accompanied by code snippets 
+
+### Context Definition 
+- When, where, how to use the component. 
+- Related components 
+
+### Wireframe view of component
+> Dan to add more about this 
+
+
+# Development
 >
 
 # Testing
-
