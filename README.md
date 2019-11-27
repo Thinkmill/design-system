@@ -87,6 +87,48 @@ Components encapsulate functionality that renders a `view` with `styles` based o
 
 We also recognise functional building blocks and controllers that are used by components to manage state, side effects and other concerns.
 
+## Props 
+
+### Should this be a static / enumerable prop, or should we be levaring composition patterns? 
+
+When we design the props for a component, sometimes we find ourselves with patterns like this:
+
+```jsx
+<RadioGroup items={[
+  { value: "one", label: "One", onClick: () => {} },
+  { value: "two", label: "Two", onClick: () => {} },
+]}/>
+```
+
+Usually this arises in situations where we want to abstract away UI / layout concerns from the user, while still allowing them to customise / feed in data that affects these UI / layout concerns. This is a common pattern for components that generate multiple items such as:
+
+* Select
+* Dropdown 
+* Drag and drop 
+* Radio
+* Checkbox
+* Navigation
+
+An important point to note however, is that we also here abstract out the ability for the user to make decisions about UI / layout concerns. While a composition pattern like render-props, would allow users to have input into these same decisions, without forcing them into taking sole responsibility over **all** of the UI / layout concerns. For more information on this, please see the [composition](#TOADD) section of our guide. 
+
+```jsx
+import { Radio, RadioGroup } from 'myRadioComponent'; 
+() => (
+  <RadioGroup>
+    {
+      ({ radioGroupProps}) => (
+        <Radio value="one" label="One" {...radioGroupProps} />
+        <Radio value="two" label="Two" {...radioGroupProps} />
+      )
+    }
+  </RadioGroup>
+);
+```
+
+
+
+
+
 ## Package Structure
 
 > TODO: this needs to go hand-in-hand with some more depth around how documentation and examples are developed and published to make sense.
@@ -273,4 +315,5 @@ Tools like kaelig's 'Splash' are a good example of this.
 >
 
 # Testing
+
 
